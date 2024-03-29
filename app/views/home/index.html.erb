@@ -1,0 +1,19 @@
+<%= form_tag survey_answers_path do %>
+
+  <%= label_tag :email %>
+  <%= text_field_tag :email, params[:email] %><br />
+
+  <%= label_tag :name %>
+  <%= text_field_tag :name %><br />
+
+
+  <h1>Questions</h1><br />
+  <% @questions.each do |question|  %>
+    <%= label_tag :question %>
+    <%= question.body %>
+    <%= check_box_tag :"question #{question.id}" %> <br />
+  <% end %>
+
+
+  <%= submit_tag "Submit", class: "btn btn-large btn-primary" %>
+<% end %>
